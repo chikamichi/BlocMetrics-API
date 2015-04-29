@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Raise error when error with params
+  config.action_controller.action_on_unpermitted_parameters = :raise
 end
