@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+#require 'pp'
+
 describe ApplicationsController do 
 
   before do
@@ -7,13 +9,14 @@ describe ApplicationsController do
   end
 
   def token_header(token)
-    ActionController::HttpAuthentication::Token.encode_credentials(token)
+    request.env['HTTP_AUTHORIZATION'] = ActionController::HttpAuthentication::Token.encode_credentials(token)
   end
 
   describe "Application#create" do
 
     it "creates list when authenticated" do
-      post :create, { 'Authorization' => token_header(@user.token) }, application: { domain: "www.example.com" }
+      post :create, { 'Authorization' => token_header(@user.token), application: { domain: "www.example.com" } }
+      #pp 'Authorization' => token_header(@user.token)
       expect(response.status).to eq(201)
       assert_equal Mime::JSON, response.content_type
     end
