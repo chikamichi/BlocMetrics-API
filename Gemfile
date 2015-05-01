@@ -13,6 +13,8 @@ gem 'faker'
 
 gem 'active_model_serializers', github: "rails-api/active_model_serializers", branch: "master"
 
+gem 'pundit'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'

@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :application do
+  factory :app do
     domain "MyString"
-user nil
+    user nil
   end
-
 end
