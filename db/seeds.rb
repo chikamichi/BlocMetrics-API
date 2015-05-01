@@ -14,5 +14,3 @@ puts "Total of #{User.count} users"
 end
 
 puts "15 new apps created, for a total of #{App.count}"
-
-

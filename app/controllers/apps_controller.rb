@@ -12,7 +12,7 @@ class AppsController < ApplicationController
 
     if app.save
       render json: app, status: 201
-    else 
+    else
       render json: {}, status: 422
     end
   end
