@@ -5,10 +5,10 @@ class CreateEvents < ActiveRecord::Migration
       t.string :event
       t.string :url
       t.string :ip_address
-      t.references :application, index: true
+      t.references :app, index: true
 
       t.timestamps null: false
     end
-    add_foreign_key :events, :applications
+    add_foreign_key :events, :apps
   end
 end
