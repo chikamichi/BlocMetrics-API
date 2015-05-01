@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-#require 'pp'
+# require 'pp'
 
 describe AppsController do 
 
@@ -16,7 +16,7 @@ describe AppsController do
 
     it "creates when authenticated" do
       post :create, { 'Authorization' => token_header(@user.token), app: { domain: "www.example.com" } }
-      #pp 'Authorization' => token_header(@user.token)
+      # pp 'Authorization' => token_header(@user.token)
       expect(response.status).to eq(201)
       assert_equal Mime::JSON, response.content_type
     end
