@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :user do
-    token "MyString"
+    token '123456789abcd'
   end
 end
