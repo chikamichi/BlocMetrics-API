@@ -5,13 +5,15 @@ gem 'rails', '4.2.0'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
+gem 'spring', group: :development
 
 gem 'sqlite3'
 
 gem 'faker'
 
-gem 'active_model_serializers', github: "rails-api/active_model_serializers", branch: "master"
+gem 'active_model_serializers',
+    github: 'rails-api/active_model_serializers',
+    branch: 'master'
 
 gem 'pundit'
 

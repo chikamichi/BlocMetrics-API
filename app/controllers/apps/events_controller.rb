@@ -4,15 +4,11 @@ module Apps
 
     def create
       app = App.find(params[:app_id])
-      if app.user == current_user
-        event = app.events.build(event_params)
-        if event.save
-          render json: event, status: 201
-        else
-          render json: {}, status: 422
-        end
+      event = app.events.build(event_params)
+      if event.save
+        render json: event, status: 201
       else
-        render json: {}, status: 401
+        render json: {}, status: 422
       end
     end
 
