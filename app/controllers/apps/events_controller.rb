@@ -3,7 +3,7 @@ module Apps
     before_action :authenticated?
 
     def create
-      app = App.find_by!(domain: :domain)
+      app = App.find(params[:app_id])
       event = app.events.build(event_params)
       if event.save
         render json: event, status: 201
