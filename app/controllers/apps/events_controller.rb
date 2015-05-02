@@ -5,6 +5,8 @@ module Apps
     def create
       app = App.find(params[:app_id])
       event = app.events.build(event_params)
+      authorize @event
+
       if event.save
         render json: event, status: 201
       else
