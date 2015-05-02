@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+require 'pp'
+
 describe Apps::EventsController do
 
   before do
@@ -24,7 +26,6 @@ describe Apps::EventsController do
                       url: 'example.com/about',
                       ip_address: '123456'
                     }
-      # pp 'Authorization' => token_header(@user.token)
       expect(response.status).to eq(201)
       assert_equal Mime::JSON, response.content_type
     end
