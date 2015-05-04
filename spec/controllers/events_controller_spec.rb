@@ -3,7 +3,6 @@ require 'rails_helper'
 require 'pp'
 
 describe EventsController do
-
   before do
     @user = create(:user)
   end
@@ -14,13 +13,11 @@ describe EventsController do
   end
 
   context 'With existing App' do
-
     before do
       @app = create(:app, user: @user)
     end
 
     describe 'Events#create' do
-
       it 'creates when authenticated' do
         post :create, 'Authorization' => token_header(@user.token),
                       event:
@@ -50,7 +47,6 @@ describe EventsController do
 
   context 'Without existing App' do
     describe 'Events#create' do
-
       it 'creates when authenticated' do
         post :create, 'Authorization' => token_header(@user.token),
                       event:

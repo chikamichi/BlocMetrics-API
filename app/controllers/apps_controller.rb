@@ -4,7 +4,7 @@ class AppsController < ApplicationController
   def show
     app = App.find(params[:id])
 
-    render json: app
+    render json: app.events
   end
 
   def create
