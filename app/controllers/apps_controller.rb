@@ -1,14 +1,23 @@
 class AppsController < ApplicationController
   before_action :authenticated?
 
+  def index
+    apps = current_user.apps
+    authorize apps
+
+    render json: apps
+  end
+
   def show
     app = App.find(params[:id])
+    authorize app
 
     render json: app.events
   end
 
   def create
     app = App.new(app_params)
+    authorize app
 
     if app.save
       render json: app, status: 201
@@ -19,6 +28,7 @@ class AppsController < ApplicationController
 
   def destroy
     app = App.find(params[:id])
+    authorize app
 
     if app.destroy
       render json: {}, status: 204

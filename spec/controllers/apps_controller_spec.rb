@@ -12,7 +12,7 @@ describe AppsController do
     ActionController::HttpAuthentication::Token.encode_credentials(token)
   end
 
-  describe 'Application#create' do
+  describe 'Apps#create' do
     it 'creates when authenticated' do
       post :create, 'Authorization' => token_header(@user.token),
                     app: { domain: 'www.example.com' }
@@ -27,7 +27,7 @@ describe AppsController do
     end
   end
 
-  describe 'Application#destroy' do
+  describe 'Apps#destroy' do
     before do
       @app = create(:app, user: @user)
     end
@@ -43,13 +43,25 @@ describe AppsController do
     end
   end
 
-  describe 'Application#show' do
+  describe 'Apps#show' do
     before do
       @app = create(:app, user: @user)
     end
 
     it 'returns application' do
       get :show, 'Authorization' => token_header(@user.token), id: @app.id
+      expect(response.status).to eq(200)
+      assert_equal Mime::JSON, response.content_type
+    end
+  end
+
+  describe 'Apps#index' do
+    before do
+      @app = create(:app, user: @user)
+    end
+
+    it 'returns users applications' do
+      get :index, 'Authorization' => token_header(@user.token)
       expect(response.status).to eq(200)
       assert_equal Mime::JSON, response.content_type
     end
