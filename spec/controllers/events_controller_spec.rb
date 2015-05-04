@@ -2,7 +2,7 @@ require 'rails_helper'
 
 require 'pp'
 
-describe EventsController do
+describe Apps::EventsController do
 
   before do
     @user = create(:user)
