@@ -22,7 +22,7 @@ describe EventsController do
         post :create, 'Authorization' => token_header(@user.token),
                       event:
                       {
-                        domain: 'example.com',
+                        domain: @app.domain,
                         event: 'pageview',
                         url: 'example.com/about',
                         ip_address: '123456'
@@ -35,7 +35,7 @@ describe EventsController do
         post :create, 'Authorization' => token_header('fake'),
                       event:
                       {
-                        domain: 'example.com',
+                        domain: @app.domain,
                         event: 'pageview',
                         url: 'example.com/about',
                         ip_address: '123456'
@@ -47,7 +47,7 @@ describe EventsController do
 
   context 'Without existing App' do
     describe 'Events#create' do
-      it 'creates when authenticated' do
+      it 'creates the app and register its event, when authenticated' do
         post :create, 'Authorization' => token_header(@user.token),
                       event:
                       {
