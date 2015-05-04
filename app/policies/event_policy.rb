@@ -1,5 +1,5 @@
 class EventPolicy < ApplicationPolicy
   def create?
-    user.present? && app.user == current_user
+    user.present? && record.app.user == user
   end
 end

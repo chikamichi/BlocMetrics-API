@@ -27,13 +27,13 @@ apps = App.all
 
 # Create Events
 
-100.times do
-  Event.create!(
-    domain: apps.sample.domain,
-    event: Faker::Name.name,
-    url: Faker::Internet.domain_suffix,
-    ip_address: Faker::Internet.ip_v4_address
-  )
-end
-
-puts "100 new events created, for a total of #{Event.count}"
+# 100.times do
+#   Event.create!(
+#     domain: apps.sample.domain,
+#     event: Faker::Name.name,
+#     url: Faker::Internet.domain_suffix,
+#     ip_address: Faker::Internet.ip_v4_address
+#   )
+# end
+#
+# puts "100 new events created, for a total of #{Event.count}"
