@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150430193726) do
+ActiveRecord::Schema.define(version: 20150427181544) do
 
   create_table "apps", force: :cascade do |t|
     t.string   "domain"
@@ -27,12 +27,12 @@ ActiveRecord::Schema.define(version: 20150430193726) do
     t.string   "event"
     t.string   "url"
     t.string   "ip_address"
-    t.integer  "application_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "app_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "events", ["application_id"], name: "index_events_on_application_id"
+  add_index "events", ["app_id"], name: "index_events_on_app_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "token"

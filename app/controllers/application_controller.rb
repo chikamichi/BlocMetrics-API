@@ -2,9 +2,10 @@ include ActionController::HttpAuthentication::Token::ControllerMethods
 
 class ApplicationController < ActionController::API
   attr_reader :current_user
+  include Pundit
 
   rescue_from ActionController::UnpermittedParameters do |parameter_unpermitted_exception|
-    render json: {"error": "Unpermitted parameter: #{parameter_unpermitted_exception}"}, status: :bad_request
+    render json: { "error": "Unpermitted parameter: #{parameter_unpermitted_exception}" }, status: :bad_request
   end
 
   protected
