@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-# require 'pp'
+require 'pp'
 
 describe AppsController do
   before do
@@ -64,6 +64,10 @@ describe AppsController do
       get :index, 'Authorization' => token_header(@user.token)
       expect(response.status).to eq(200)
       assert_equal Mime::JSON, response.content_type
+      JSON.parse(response.body).tap do |json|
+        expect(json.length).to equal(1)
+        expect(json.first['id']).to equal @app.id
+      end
     end
   end
 end
