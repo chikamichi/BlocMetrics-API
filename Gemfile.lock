@@ -79,6 +79,7 @@ GEM
     pundit (1.0.0)
       activesupport (>= 3.0.0)
     rack (1.6.0)
+    rack-cors (0.4.0)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.2.0)
@@ -149,6 +150,7 @@ DEPENDENCIES
   faker
   pry-rails
   pundit
+  rack-cors
   rails (= 4.2.0)
   rails-api
   rspec-rails (~> 3.0)

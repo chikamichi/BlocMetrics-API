@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :events, except: [:destroy, :update, :create],
                        controller: 'apps/events'
   end
+  # match '/apps', to: 'apps#options', via: [:options]
+
   resources :events, only: [:create]
 end

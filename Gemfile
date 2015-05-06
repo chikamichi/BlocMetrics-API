@@ -16,6 +16,8 @@ gem 'active_model_serializers',
 
 gem 'pundit'
 
+gem 'rack-cors', require: 'rack/cors'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.0'
