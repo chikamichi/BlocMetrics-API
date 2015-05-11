@@ -12,7 +12,14 @@ class AppsController < ApplicationController
     app = App.find(params[:id])
     authorize app
 
-    render json: app.events
+    sorted = app.events.group(:event).count
+    events_count = []
+
+    sorted.each do |key, value|
+      events_count.push([key, value])
+    end
+
+    render json: { data: events_count }
   end
 
   def create

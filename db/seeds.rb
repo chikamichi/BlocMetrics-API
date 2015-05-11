@@ -23,14 +23,41 @@ require 'faker'
 #
 # puts "15 new apps created, for a total of #{App.count}"
 
-apps = App.all
+app = App.find(1)
 
 # Create Events
 
-200.times do
+10.times do
   Event.create!(
-    app: apps.sample,
-    event: Faker::Name.name,
+    app: app,
+    event: 'signed_up',
+    url: Faker::Internet.domain_suffix,
+    ip_address: Faker::Internet.ip_v4_address
+  )
+end
+
+6.times do
+  Event.create!(
+    app: app,
+    event: 'pageview',
+    url: Faker::Internet.domain_suffix,
+    ip_address: Faker::Internet.ip_v4_address
+  )
+end
+
+8.times do
+  Event.create!(
+    app: app,
+    event: 'click',
+    url: Faker::Internet.domain_suffix,
+    ip_address: Faker::Internet.ip_v4_address
+  )
+end
+
+3.times do
+  Event.create!(
+    app: app,
+    event: 'new_list',
     url: Faker::Internet.domain_suffix,
     ip_address: Faker::Internet.ip_v4_address
   )
